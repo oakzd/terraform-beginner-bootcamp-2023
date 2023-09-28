@@ -1,4 +1,6 @@
-sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+#!/usr/bin/env bash
+
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
 
 wget -O- https://apt.releases.hashicorp.com/gpg | \
 gpg --dearmor | \
@@ -14,4 +16,4 @@ sudo tee /etc/apt/sources.list.d/hashicorp.list
 
 sudo apt update
 
-sudo apt-get install terraform
+sudo apt-get install terraform -y
