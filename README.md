@@ -155,4 +155,4 @@ aws sts get-caller-identity
     "Arn": "arn:aws:iam::123456789012:user/terraform-beginner-bootcamp"
 }
 ```
-
+We'll need to generate AWS CLI credits from IAM User to the user AWS CLI 
