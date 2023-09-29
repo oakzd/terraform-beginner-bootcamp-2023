@@ -148,5 +148,11 @@ We can check our AWS credentials is configured properly by running the following
 aws sts get-caller-identity
 ```
 
-
+```json
+{
+    "UserId": "QDSWVZ7e4DVA7ZDa2dIOD",
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/terraform-beginner-bootcamp"
+}
+```
 
