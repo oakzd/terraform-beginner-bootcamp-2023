@@ -212,4 +212,4 @@ Please **commit** this to your VSC (Github).
 
 ### Terraform Directory
 
-`terraform` directory contains binaries of terraform providers
+`terraform` directory contains binaries of terraform providers.
