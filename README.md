@@ -156,3 +156,60 @@ aws sts get-caller-identity
 }
 ```
 We'll need to generate AWS CLI credits from IAM User to the user AWS CLI 
+
+
+## Terraform Basics
+
+### Terraform Registry
+
+Terraform sources their providers and modules from the Terraform registry which is located at [registry.terraform.io](https://registry.terraform.io)
+
+- **Providers** is an interface to Cloud APIs that will allow to create resources in terraform.
+
+- **Modules** are premade templates that anyone can use to make life easier
+
+[Random Terraform provider](https://registry.terraform.io/providers/hashicorp/random/latest)
+
+### Terraform Console
+
+We can see a list of all the terraform commands by typing
+`terraform`
+
+#### Terraform Init
+
+At the start of a new terraform project we will run `terraform init` to download the binaries for the terraform providers that we'll use in this project
+
+
+#### Terraform Plan
+
+`terraform plan`
+This will generate out a changeset, about the state of our infrastructure and what will be changed.
+
+We can output this changeset ie. 'plan' to be passed to an apply, but often you can just ignore outputting
+
+#### Terraform Apply
+
+`terraform apply`
+
+This will run a plan and pass the changeset to be executed by terraform.
+
+Automatically approve by doing the following
+
+`terraform apply --auto-approve`
+
+
+### Terraform Lock Files
+
+`terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used for the entire project.
+
+Please **commit** this to your VSC (Github).
+
+### Terraform State Files
+
+`terraform.tfstate` contains senstive information about the current state of your infrastructure. Do **NOT** commit this file!
+
+`terraform.tfstate.backup` contains the previous file state.
+
+### Terraform Directory
+
+`terraform` directory contains binaries of terraform providers
