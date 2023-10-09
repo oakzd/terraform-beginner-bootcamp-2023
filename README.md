@@ -203,6 +203,10 @@ This will destroy your resources that you spun up
 
 `terraform destroy --auto-approve`
 
+
+#### s3 Bucket Naming rules
+We ran into an issue were we have uppercase letters. To allow only lowercase and not uppcase apply the `uppcase = false` option
+
 #### Terraform Lock Files
 
 `terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used for the entire project.
