@@ -8,7 +8,14 @@ terraform {
       source = "hashicorp/aws"
       version = "5.19.0"
     }
+  }
 
+  cloud {
+    organization = "Terraform-Bootcamp-Zaid"
+
+    workspaces {
+      name = "terra-house-1"
+    }
   }
 }
 

@@ -222,3 +222,29 @@ Please **commit** this to your VSC (Github).
 ##@# Terraform Directory
 
 `terraform` directory contains binaries of terraform providers.
+
+## Issues with Terraform Cloud login and Gitpod Workspace
+
+When attempting `terraform login` it is very diffcult to complete the steps. Instead follow the steps below.
+
+
+1. Generate your token!
+[Token!](https://app.terraform.io/app/settings/tokens?source=terraform-login)
+
+2. Then create the file manually
+
+```sh
+/home/gitpod/.terraform.d/credentials.tfrc.json
+
+```
+
+3. open file and enter your generated token
+
+```sh
+"credential": {
+    "app.terraform.io": {
+        "token": "Your terraform -cloud-token-here"
+    }
+}
+
+```
