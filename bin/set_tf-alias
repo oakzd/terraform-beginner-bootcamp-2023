@@ -19,4 +19,5 @@ else
     echo "The .bash_profile file does not exist in your home directory."
     echo "You can create it manually and add the alias:"
     echo "$alias_command"
+
 fi
