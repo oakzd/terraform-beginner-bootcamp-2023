@@ -219,6 +219,6 @@ Please **commit** this to your VSC (Github).
 
 `terraform.tfstate.backup` contains the previous file state.
 
-##@# Terraform Directory
+#### Terraform Directory
 
 `terraform` directory contains binaries of terraform providers.
