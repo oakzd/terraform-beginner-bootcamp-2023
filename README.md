@@ -240,12 +240,14 @@ When attempting `terraform login` it is very diffcult to complete the steps. Ins
 
 3. open file and enter your generated token
 
-```sh
+```json
+{
 "credential": {
     "app.terraform.io": {
         "token": "Your terraform -cloud-token-here"
     }
+  }
 }
-
 ```
-
+We automated this task with the following bash script. 
+[bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
