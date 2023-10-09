@@ -1,4 +1,4 @@
-#!/bin/bash
+#!usr/bin/env bash
 
 # Define the alias command
 alias_command='alias tf="terraform"'
@@ -18,3 +18,6 @@ else
     echo "$alias_command" > ~/.bash_profile
     echo "Alias 'tf' has been added to a new .bash_profile file."
 fi
+
+# Source .bash_profile to apply changes immediately
+source ~/.bash_profile
