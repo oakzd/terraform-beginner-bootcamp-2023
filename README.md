@@ -1,6 +1,11 @@
 # Terraform Beginner Bootcamp 2023!
 
-## Semantic Versioning :mage:
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+
+## Semantic Versioning
 
 This project is going to utilize semantic versioning for its its tagging.
 [semver.org](https://semver.org/)
@@ -82,7 +87,7 @@ chmod 744 ./bin/install_terraform_cli
 https://en.wikipedia.org/wiki/Chmod
 
 
-### Github Lifecycle (Before, Init, Command)
+### Github Lifecycle Before, Init, Command
 We need to be careful when using the Init because it will not rerun if we restart an existing workspace.
 
 https://www.gitpod.io/docs/configure/workspaces/tasks
