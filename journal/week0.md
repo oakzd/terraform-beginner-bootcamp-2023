@@ -1,5 +1,35 @@
 # Terraform Beginner Bootcamp 2023! -week 0
 
+- [Terraform Beginner Bootcamp 2023! -week 0](#terraform-beginner-bootcamp-2023---week-0)
+  * [Semantic Versioning :mage:](#semantic-versioning--mage-)
+  * [Install the terraform CLI](#install-the-terraform-cli)
+    + [Considerations with the terraform CLU changes](#considerations-with-the-terraform-clu-changes)
+    + [Considerations for linux distribution](#considerations-for-linux-distribution)
+    + [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+      - [Shebang considerations](#shebang-considerations)
+  * [Execution considerations](#execution-considerations)
+      - [Linux permissions considerations](#linux-permissions-considerations)
+    + [Github Lifecycle (Before, Init, Command)](#github-lifecycle--before--init--command)
+    + [Working Env Vars](#working-env-vars)
+      - [Printing Vars](#printing-vars)
+      - [Scoping of Env Vars](#scoping-of-env-vars)
+      - [persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+    + [AWS CLI Installation](#aws-cli-installation)
+  * [Terraform Basics](#terraform-basics)
+    + [Terraform Registry](#terraform-registry)
+    + [Terraform Console](#terraform-console)
+      - [Terraform Init](#terraform-init)
+      - [Terraform Plan](#terraform-plan)
+      - [Terraform Apply](#terraform-apply)
+      - [Terraform Destroy](#terraform-destroy)
+      - [s3 Bucket Naming rules](#s3-bucket-naming-rules)
+      - [Terraform Lock Files](#terraform-lock-files)
+      - [Terraform State Files](#terraform-state-files)
+  * [Issues with Terraform Cloud login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
+
+
+
+
 ## Semantic Versioning :mage:
 
 This project is going to utilize semantic versioning for its its tagging.
