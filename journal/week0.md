@@ -10,7 +10,7 @@
     + [Linux permissions considerations](#linux-permissions-considerations)
 - [Gitpod Lifecycle Before, Init, Command](#gitpod-lifecycle-beforeinitcommand)
 - [Working Env Vars](#working-env-vars)
-- [env command](#env-command)
+  * [env command](#env-command)
   * [Setting and unsetting Env Vars](#setting-and-unsetting-env-vars)
   * [Printing Vars](#printing-vars)
   * [Scoping of Env Vars](#scoping-of-env-vars)
@@ -117,7 +117,7 @@ https://www.gitpod.io/docs/configure/workspaces/tasks
 
 ## Working Env Vars
 
-## env command
+### env command
 We can list out all Enviroment variables (Env Vars) using the `env` command
 
 We can filter specific env vars using grep eg. `env | grep AWS_`
