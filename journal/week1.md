@@ -53,3 +53,24 @@ Terraform will load files in this order. If variable is written multiple times t
 2. terraform.tfvars.json
 3. *.auto.tfvars or *.auto.tfvars.json
 4. -var and -var-file
+
+
+## Dealing with Configuratoin Drift
+
+
+### What happens if you loose your statefile
+
+If this happens then you most likely have to tean down all cloud infrastructure manually.
+
+You can try terraform import but it wont work for all cloud resources. Please check documentation.
+
+### Fix Missing Resources with Terraform import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+### Fix Manual Configuration
+
+If their is configuration drift, meaning that someone outside of terraform tries to do "anything" like delete a resources. Then terraform will attempt to "bring" it back.
