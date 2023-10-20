@@ -55,7 +55,7 @@ Terraform will load files in this order. If variable is written multiple times t
 4. -var and -var-file
 
 
-## Dealing with Configuratoin Drift
+## Dealing with Configuration Drift
 
 
 ### What happens if you loose your statefile
@@ -74,3 +74,38 @@ You can try terraform import but it wont work for all cloud resources. Please ch
 ### Fix Manual Configuration
 
 If their is configuration drift, meaning that someone outside of terraform tries to do "anything" like delete a resources. Then terraform will attempt to "bring" it back.
+
+## Fix using Terraform Refresh
+
+```sh
+terraform apply -refresh-only -auto-approve
+```
+
+## Terraform Modules
+
+### Terraform Module Structure
+It is recomended to place modules in a 'module' directory when locally deveolpling modules but you can name it anything.
+
+### Passing Input Variables
+
+We can pass input variables to our module.
+The module has to declare the terraform variables in its own variables.tf
+```tf
+module "terrahouse_aws" {
+  user_uuid = var.user_uuid
+  bucket_name= var.bucket_name
+}
+```
+### Modules Sources
+
+Using the source we can import the module from varius places eg
+-locally
+-Github
+-Terraform Registry
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+}
+```
+[Terraform Modules](https://developer.hashicorp.com/terraform/language/modules/sources)
