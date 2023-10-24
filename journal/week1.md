@@ -170,3 +170,7 @@ resource "aws_s3_bucket_object" "index_html" {
   key    = "index.html"
   source = "${path.root}/public/index.html"
 }
+
+### Terraform Data Sources
+
+[Terraform Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
