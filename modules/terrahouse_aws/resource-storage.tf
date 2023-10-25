@@ -23,7 +23,7 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
 }
 
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
-resource "aws_s3_bucket_object" "index_html" {
+resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
   source = var.index_html_filepath
@@ -35,7 +35,7 @@ resource "aws_s3_bucket_object" "index_html" {
 }
 
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
-resource "aws_s3_bucket_object" "error_html" {
+resource "aws_s3_object" "error_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "error.html"
   content_type = "text/html"
