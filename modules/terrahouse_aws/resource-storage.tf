@@ -27,7 +27,7 @@ resource "aws_s3_bucket_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
   source = var.index_html_filepath
-
+  content_type = "text/html"
   etag = filemd5(var.index_html_filepath)
 }
 
@@ -35,15 +35,15 @@ resource "aws_s3_bucket_object" "index_html" {
 resource "aws_s3_bucket_object" "error_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "error.html"
+  content_type = "text/html"
   source = var.error_html_filepath
   etag = filemd5(var.error_html_filepath)
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.website_bucket.bucket_name
+  bucket = aws_s3_bucket.website_bucket.bucket
   #policy = data.aws_iam_policy_document.allow_access_from_another_account.json
   policy = jsonencode({
-    {
     "Version" = "2012-10-17",
     "Statement" = {
         "Sid" = "AllowCloudFrontServicePrincipalReadOnly",
@@ -56,8 +56,9 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
         "Condition" = {
         "StringEquals" = {
             #"AWS:SourceArn": data.aws_caller_identity.current.arn
-            "AWS:SourceArn" = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.s3_distribution}.id"
+            "AWS:SourceArn" = "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.s3_distribution.id}"
            } 
         }
+      }
     })
 }
