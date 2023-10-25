@@ -207,3 +207,7 @@ We used the jsonencode to create the json policy inline in the hcl.
 
 ```
 [jsconencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+### Changing the lifecycle of resources
+
+[Meta Arguments Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
