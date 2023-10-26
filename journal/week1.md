@@ -1,6 +1,5 @@
 # Terraform Beginner Bootcamp 2023 week 1
 
-
 ## Root Module Structure
 
 [fixing tags - delete](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
@@ -14,18 +13,15 @@ $ git tag -d <tag_name>
 Remotely delete tag
 ```sh
 $ git push -delete origin tagname
-
 ```
 
 Checkout the commit you want to retag. Grab the sha from your Github history.
 
 ```sh
-
 git checkout <SHA>
 git tag M.M.P
 git push --tags
 git checkout main
-
 ```
 
 ## Root Module Structure
@@ -33,7 +29,7 @@ git checkout main
 Our root module structure is as follows:
 
 
-```
+```sh
 - PROJECT_ROOT
   |--- main.tf = everything else.
   |--- variables.tf = stores the structure of input variables.
@@ -138,14 +134,11 @@ module "terrahouse_aws" {
 ```
 [Terraform Modules](https://developer.hashicorp.com/terraform/language/modules/sources)
 
-
-
 ## Considerations when using chatGPT to write Terraform
 
 LLMs like chatGPT are not up to date and may produce incorrect or deprecatied information.
 
 ## Working with Files in Terraform
-
 
 ### Working with Files in Terraform
 
@@ -157,7 +150,6 @@ condition = fileexists(var.error_html_filepath)
 [File exists function](https://developer.hashicorp.com/terraform/language/functions/fileexists)
 
 ### Filemd5
-
 
 [Filemd5 function](https://developer.hashicorp.com/terraform/language/functions/filemd5)
 
@@ -204,6 +196,20 @@ We used the jsonencode to create the json policy inline in the hcl.
 ```tf
 > jsonencode({"hello"="world"})
 {"hello":"world"}
+```
+
+```tf
+[jsconencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
 
 ```
-[jsconencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+### Changing the lifecycle of resources
+
+[Meta Arguments Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+## Terraform Data
+
+Plain data values like Local Values and Input Variables dont have side effects to plan against. You can use terraform_data's behavoiur to trigger a replacement.
+
+
+[Terraform Data Sources](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
