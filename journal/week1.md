@@ -158,13 +158,13 @@ In Terraform there is a special variable called `path` that allows us to referen
 - path.root = get the path for the root module
 [Special path variables](https://developer.hashicorp.com/terraform/language/expressions/references)
 
-
+```tf
 resource "aws_s3_bucket_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
   source = "${path.root}/public/index.html"
 }
-
+```
 ## Terraform Locals
 Locals allows us to define local variables.
 Its useful when we need to transform data into another format and have it refernced as a variable
@@ -240,8 +240,6 @@ This will execute commands on local machine when you run the commands eg. plan ,
 
 ```tf
 resource "aws_instance" "web" {
-  # ...
-
   # Establishes connection to be used by all
   # generic remote provisioners (i.e. file/remote-exec)
   connection {
@@ -258,9 +256,17 @@ resource "aws_instance" "web" {
     ]
   }
 }
-
-
 ```
 [remote-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
 
 This will execute commands on a remote machine you specify. You can use something ssh to get into the machine
+
+
+## For Each Expressions
+
+```sh
+[for s in var.list : upper(s)]
+```
+
+This is helpful when you are creating multiple of the same cloud resource and reduce the amount of code needed
+[For Each Expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
