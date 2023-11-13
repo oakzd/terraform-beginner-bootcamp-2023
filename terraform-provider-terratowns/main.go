@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // package main: Declares the package name. 
 // The main package is special in Go, it's where the execution of the program starts.
 package main
@@ -47,6 +48,7 @@ func Provider() *schema.Provider {
 				Required: true,
 				Description: "UUID for configuration",
 				//ValidateFunc: validateUUID,
+
 			},
 		},
 	}
@@ -55,10 +57,11 @@ func Provider() *schema.Provider {
 }
 
 //func validateUUID(v interface{}, k string) (ws []string, errors []error) {
+
 //	log.Print('validateUUID:start')
 //	value := v.(string)
 //	if _,err = uuid.Parse(value); err != nil {
 //		errors = append(error, fmt.Errorf("invalid UUID format"))
 //	}
 //	log.Print('validateUUID:end')
-//}
+
