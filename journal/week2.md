@@ -49,3 +49,10 @@ bundle install
 bundle exec ruby server.rb
 ```
 
+## CRUD
+
+Terraform Provider resources utilize CRUD.
+
+CRUD = Create, read, update and delete
+
+https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
