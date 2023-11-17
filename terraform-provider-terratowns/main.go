@@ -1,12 +1,12 @@
-<<<<<<< HEAD
 // package main: Declares the package name. 
 // The main package is special in Go, it's where the execution of the program starts.
 package main
 
 // fmt is short format, it contains functions for formatted I/O.
 import (
-	// "log"
+	"log"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
@@ -56,12 +56,25 @@ func Provider() *schema.Provider {
 	return p
 }
 
-//func validateUUID(v interface{}, k string) (ws []string, errors []error) {
+func validateUUID(v interface{}, k string) (ws []string, errors []error) {
+	log.Print("validateUUID:start")
+	value := v.(string)
+	if _,err := uuid.Parse(value); err != nil {
+		errors = append(errors, fmt.Errorf("invalid UUID format"))
+	}
+	log.Print("validateUUID:end")
+	return
+}
 
-//	log.Print('validateUUID:start')
-//	value := v.(string)
-//	if _,err = uuid.Parse(value); err != nil {
-//		errors = append(error, fmt.Errorf("invalid UUID format"))
-//	}
-//	log.Print('validateUUID:end')
-
+func providerConfigure(p *schema.Provider) schema.ConfigureContextFunc {
+	return func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics ) {
+		log.Print("providerConfigure:start")
+		config := Config{
+			Endpoint: d.Get("endpoint").(string),
+			Token: d.Get("token").(string),
+			UserUuid: d.Get("user_uuid").(string),
+		}
+		log.Print("providerConfigure:end")
+		return &config, nil
+	}
+}
