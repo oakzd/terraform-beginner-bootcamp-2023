@@ -36,3 +36,15 @@ provider "terratowns" {
 #  error_html_filepath = var.error_html_filepath
 #  content_version = var.content_version
 #}
+
+resource "terrahouse_home" "home"{
+  name = "People of Palestine"
+  description = <<DESCRIPTION
+  The Palestinan people are a people of honor and endurance. They have been under occupation for over 75 years!
+  They continue to resist their occupier and push for a FREE PALESTINE!
+  DESCRIPTION
+  #domain_name =module.terrahouse_aws.cloudfront_url
+  domain_name = "234sdf.cloundfront.net"
+  town = "missingo"
+  content_version = 1
+}

@@ -94,6 +94,33 @@ func Resource() *schema.Resource {
 		ReadContext: resourceHouseRead,
 		UpdateContext: resourceHouseUpdate,
 		DeleteContext: resourceHouseDelete,
+		Schema: map[string]*schema.Schema{
+			"name": {
+				Type: schema.TypeString,
+				Required: true,
+				Description: "Name of home",
+			},
+			"description": {
+				Type: schema.TypeString,
+				Required: true,
+				Description: "Description of home",
+			},
+			"domain_name": {
+				Type: schema.TypeString,
+				Required: true,
+				Description: "Domain name of home eg. *.cloudfront.net",
+			},
+			"town": {
+				Type: schema.TypeString,
+				Required: true,
+				Description: "The town to which the home will belong to",
+			},
+			"content_version": {
+				Type: schema.TypeInt,
+				Required: true,
+				Description: "The content version of the home",
+			},
+		},
 	}
 	log.Print("Resource:start")
 	return resource
@@ -101,21 +128,34 @@ func Resource() *schema.Resource {
 
 
 func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	log.Print("resourceHouseCreate:start")
 	var diags diag.Diagnostics
+
+	config := m.(*Config)
+	log.Print("resourceHouseCreate:end")
 	return diags
 }
 
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
+	config := m.(*Config)
+	log.Print("resourceHouseRead:end")
 	return diags
 }
 
 func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	log.Print("resourceHouseUpdate:start")
 	var diags diag.Diagnostics
+	config := m.(*Config)
+	log.Print("resourceHouseUpdate:end")
 	return diags
 }
 
 func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	log.Print("resourceHouseDelete:start")
 	var diags diag.Diagnostics
+	config := m.(*Config)
+	log.Print("resourceHouseDelete:end")
 	return diags
 }
