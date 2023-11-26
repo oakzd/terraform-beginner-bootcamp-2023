@@ -184,6 +184,8 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 
 	log.Print("resourceHouseCreate:end")
 
+func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+	var diags diag.Diagnostics
 	return diags
 }
 
@@ -233,7 +235,6 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 	}
 
 	log.Print("resourceHouseRead:end")
-
 	return diags
 }
 
