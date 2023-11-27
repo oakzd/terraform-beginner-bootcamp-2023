@@ -7,15 +7,15 @@ variable "user_uuid" {
   }
 }
 
-variable "bucket_name" {
-  description = "The name of the AWS S3 bucket"
-  type        = string
-
-  validation {
-    condition     = can(regex("^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$", var.bucket_name))
-    error_message = "The bucket_name does not conform to AWS S3 bucket naming standards."
-  }
-}
+#variable "bucket_name" {
+#  description = "The name of the AWS S3 bucket"
+#  type        = string
+#
+#  validation {
+#    condition     = can(regex("^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$", var.bucket_name))
+#    error_message = "The bucket_name does not conform to AWS S3 bucket naming standards."
+#  }
+#}
 
 variable "index_html_filepath" {
   description = "Path to the index.html file"
