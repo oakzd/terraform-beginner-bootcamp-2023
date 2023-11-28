@@ -31,8 +31,8 @@ provider "terratowns" {
 module "home_palestine_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  public_path = var.palestine_public_path
-  content_version = var.content_version
+  public_path = var.palestine.public_path
+  content_version = var.palestine.content_version
   }
 resource "terratowns_home" "home"{
   name = "People of Palestine!"
@@ -42,22 +42,22 @@ resource "terratowns_home" "home"{
   DESCRIPTION
   domain_name = module.home_palestine_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.palestine.content_version
 }
 
-#module "home_pokemon_hosting" {
-#  source = "./modules/terrahome_aws"
-#  user_uuid = var.teacherseat_user_uuid
-#  public_path = var.pokemon_public_path
-#  content_version = var.content_version
-#}
-#
-#resource "terratowns_home" "home_pokemon"{
-#  name = "Pokemon!"
-#  description = <<DESCRIPTION
-#  I really love pokemon. I play the video games and collect the cards!
-#  DESCRIPTION
-#  domain_name =module.home_pokemon_hosting.domain_name
-#  town = "gamers-grotto"
-#  content_version = 1
-#}
+module "home_pokemon_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.pokemon.public_path
+  content_version = var.pokemon.content_version
+}
+
+resource "terratowns_home" "home_pokemon"{
+  name = "Pokemon!"
+  description = <<DESCRIPTION
+  I really love pokemon. I play the video games and collect the cards!
+  DESCRIPTION
+  domain_name =module.home_pokemon_hosting.domain_name
+  town = "gamers-grotto"
+  content_version = var.pokemon.content_version
+}

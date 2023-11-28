@@ -27,7 +27,7 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
 resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
-  source = var.index_html_filepath
+  source = "${var.public_path}/index.html"
   content_type = "text/html"
   etag = filemd5("${var.public_path}/index.html")
   lifecycle {
@@ -38,7 +38,7 @@ resource "aws_s3_object" "index_html" {
 
 resource "aws_s3_object" "upload_assets" {
   
-  for_each = fileset(var.public_path+ "assets", "*.{png,jpg,svg,gif}")
+  for_each = fileset("${var.public_path}/assets", "*.{png,jpg,svg,gif}")
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "assets/${each.key}"
   source = "${var.public_path}/assets/${each.key}"
